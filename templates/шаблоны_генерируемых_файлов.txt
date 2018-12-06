@@ -1,0 +1,475 @@
+
+//---------------------------
+// FORM
+//.h
+#define get_form_h_file() ("#ifndef MAINWINDOW_H\n"\
+"#define MAINWINDOW_H\n"\
+"\n"\
+"#include <QtGui/QMainWindow>\n"\
+"#include \"ipanel.h\"\n "\
+\
+"namespace Ui\n" \
+"{\n"\
+"    class form_<$ImitatorName>;\n"\
+"}\n"\
+\
+"class form_<$ImitatorName> : public QMainWindow\n"\
+"{\n"\
+"    Q_OBJECT\n"\
+\
+"public:\n"\
+"    form_<$ImitatorName>(QWidget *parent = 0);\n"\
+"    ~form_<$ImitatorName>();\n"\
+"//    Q_DECL_EXPORT QWidget* createPanelForm();\n"\
+\
+"private:\n"\
+"    Ui::form_<$ImitatorName> *ui;\n"\
+"};\n"\
+\
+"#endif // MAINWINDOW_H\n")
+
+
+//.cpp
+#define get_form_cpp_file() ("#include \"<$ImitatorName>.h\"\n "\
+"#include \"ui_<$ImitatorName>.h\"\n "\
+"\n"\
+"form_<$ImitatorName>::form_<$ImitatorName>(QWidget *parent)\n"\
+"    : QMainWindow(parent), ui(new Ui::form_<$ImitatorName>)\n"\
+"{\n"\
+"    ui->setupUi(this);\n"\
+"}\n"\
+"\n"\
+"form_<$ImitatorName>::~form_<$ImitatorName>()\n"\
+"{\n"\
+"    delete ui;\n"\
+"}\n"\
+"\n"\
+"\n"\
+"MAIN_FORM(form_<$ImitatorName>);\n")
+
+
+//.ui
+#define get_form_ui_file() ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"\
+    "<ui version=\"4.0\">\n"\
+    " <class>form_<$ImitatorName></class>\n"\
+    " <widget class=\"QWidget\" name=\"form_<$ImitatorName>\">\n"\
+    "  <property name=\"geometry\">\n"\
+    "   <rect>\n"\
+    "    <x>0</x>\n"\
+    "    <y>0</y>\n"\
+    "    <width>322</width>\n"\
+    "    <height>359</height>\n"\
+    "   </rect>\n"\
+    "  </property>\n"\
+    "  <property name=\"minimumSize\">\n"\
+    "   <size>\n"\
+    "    <width>311</width>\n"\
+    "    <height>359</height>\n"\
+    "   </size>\n"\
+    "  </property>\n"\
+    "  <property name=\"maximumSize\">\n"\
+    "   <size>\n"\
+    "    <width>10000</width>\n"\
+    "    <height>10000</height>\n"\
+    "   </size>\n"\
+    "  </property>\n"\
+    "  <property name=\"windowTitle\">\n"\
+    "   <string><$ImitatorName></string>\n"\
+    "  </property>\n"\
+    "  <widget class=\"QTabWidget\" name=\"tabWidget\">\n"\
+    "   <property name=\"geometry\">\n"\
+    "    <rect>\n"\
+    "     <x>10</x>\n"\
+    "     <y>0</y>\n"\
+    "     <width>311</width>\n"\
+    "     <height>351</height>\n"\
+    "    </rect>\n"\
+    "   </property>\n"\
+    "   <property name=\"currentIndex\">\n"\
+    "    <number>0</number>\n"\
+    "   </property>\n"\
+    "   <widget class=\"QWidget\" name=\"tab\">\n"\
+    "   <attribute name=\"title\">\n"\
+    "     <string>FrontPanel</string>\n"\
+    "    </attribute>\n"\
+    "    <widget class=\"QGroupBox\" name=\"groupBox_7\">\n"\
+    "     <property name=\"geometry\">\n"\
+    "      <rect>\n"\
+    "       <x>90</x>\n"\
+    "       <y>50</y>\n"\
+    "       <width>111</width>\n"\
+    "       <height>191</height>\n"\
+    "      </rect>\n"\
+    "     </property>\n"\
+    "     <property name=\"title\">\n"\
+    "      <string/>\n"\
+    "     </property>\n"\
+    "     <widget class=\"CDiode\" name=\"cDiode\">\n"\
+    "      <property name=\"geometry\">\n"\
+    "       <rect>\n"\
+    "        <x>50</x>\n"\
+    "        <y>40</y>\n"\
+    "        <width>21</width>\n"\
+    "        <height>21</height>\n"\
+    "       </rect>\n"\
+    "      </property>\n"\
+    "      <property name=\"minimumSize\">\n"\
+    "       <size>\n"\
+    "        <width>20</width>\n"\
+    "        <height>20</height>\n"\
+    "       </size>\n"\
+    "      </property>\n"\
+    "      <property name=\"ID\">\n"\
+    "       <string>HL1</string>\n"\
+    "      </property>\n"\
+    "      <property name=\"Domain\">\n"\
+    "       <string>IND</string>\n"\
+    "      </property>\n"\
+    "     </widget>\n"\
+    "     <widget class=\"CTumbler\" name=\"cTumbler\">\n"\
+    "      <property name=\"geometry\">\n"\
+    "       <rect>\n"\
+    "        <x>40</x>\n"\
+    "        <y>100</y>\n"\
+    "        <width>40</width>\n"\
+    "        <height>40</height>\n"\
+    "       </rect>\n"\
+    "      </property>\n"\
+    "      <property name=\"minimumSize\">\n"\
+    "       <size>\n"\
+    "        <width>40</width>\n"\
+    "        <height>40</height>\n"\
+    "       </size>\n"\
+    "      </property>\n"\
+    "      <property name=\"ID\">\n"\
+    "       <string>SA1</string>\n"\
+    "      </property>\n"\
+    "      <property name=\"Domain\">\n"\
+    "       <string>CTR</string>\n"\
+    "      </property>\n"\
+    "      <property name=\"orientation\">\n"\
+    "       <enum>Qt::Vertical</enum>\n"\
+    "      </property>\n"\
+    "     </widget>\n"\
+    "    </widget>\n"\
+    "   </widget>\n"\
+    "   <widget class=\"QWidget\" name=\"tab_2\">\n"\
+    "    <attribute name=\"title\">\n"\
+    "     <string>Rear</string>\n"\
+    "    </attribute>\n"\
+    "   </widget>\n"\
+    "  </widget>\n"\
+    " </widget>\n"\
+    " <customwidgets>\n"\
+    "  <customwidget>\n"\
+    "   <class>CDiode</class>\n"\
+    "   <extends>QWidget</extends>\n"\
+    "   <header>cdiode.h</header>\n"\
+    "  </customwidget>\n"\
+    "  <customwidget>\n"\
+    "   <class>CTumbler</class>\n"\
+    "   <extends>QWidget</extends>\n"\
+    "   <header>ctumbler.h</header>\n"\
+    "  </customwidget>\n"\
+    " </customwidgets>\n"\
+    " <resources/>\n"\
+    " <connections/>\n"\
+    "</ui>")
+
+//ipanels.h
+#define get_ipanel_h() ("#ifndef IPANEL_H"\
+"#define IPANEL_H"\
+"\n"\
+"#include <QtCore/QtGlobal>"\
+"\n"\
+"#define MAIN_FORM(xxx) extern \"C\" Q_DECL_EXPORT QWidget * createPanelForm() { return new xxx(); }"\
+"\n"\
+"#endif // IPANEL_H\n")
+
+//main.cpp
+#define get_main_cpp() ("main.c"\
+"#include <QtGui/QApplication>"\
+"#include <QLibrary>"\
+"#include \"mainwindow.h\""\
+"#include \"compdispatcher.h\""\
+"\n"\
+"int main(int argc, char *argv[])"\
+"{"\
+"    QApplication a(argc, argv);"\
+"    MainWindow w;"\
+"    w.show();"\
+"    CompDispatcher* cd = CompDispatcher::instance();"\
+"    cd->refreshIElements();"\
+"    cd->printControls();"\
+"    cd->printIndicators();"\
+"    return a.exec();"\
+"}")
+
+//.pro
+#define get_form_profile() ("TARGET = <$ImitatorName>\n"\
+"DESTDIR = ..\n"\
+"TEMPLATE = lib\n"\
+"CONFIG += dll\n"\
+"DEFINES += MYSHAREDLIB_LIBRARY\n"\
+"QT += xml \\\n"\
+"    gui \\\n"\
+"    svg\n"\
+"CONFIG += designer # console\n"\
+"INCLUDEPATH += ../../src/icomponents\n"\
+"SOURCES += <$ImitatorName>.cpp\n"\
+"\n"\
+"# main.cpp\n"\
+"HEADERS += <$ImitatorName>.h\n"\
+"FORMS += <$ImitatorName>.ui\n"\
+"win32 {\n"\
+"    LIBS += ..\\..\\lib\\icomponents.lib\n"\
+"    LIBS += ..\\..\\lib\\idisp2.lib\n"\
+"}\n"\
+"unix {\n"\
+"    LIBS += -L../../lib/ \\ \n"\
+"        -licomponents\n"\
+"    LIBS += -L../../lib/ \\ \n"\
+"        -lidisp\n"\
+"}\n")
+
+
+
+ //---------------------------
+ // WRAPPER
+
+//.cpp
+#define get_virtual_wrapper_cpp() ("#include \"virtualwrapper<$ImitatorName>.h\"\n"\
+"#include <QTcpSocket>\n"\
+"#include <QFile>\n"\
+"#include <QIODevice>\n"\
+"#include <iostream>\n"\
+"\n"\
+"_<$ImitatorName>VirtualWrapper::_<$ImitatorName>VirtualWrapper(QString panelname) : IVirtualWrapper(panelname)\n"\
+"{\n"\
+"\n"\
+"\n"\
+"}\n"\
+"\n"\
+"void _<$ImitatorName>VirtualWrapper::processParam(QString name, QVariant value)\n"\
+"{\n"\
+"    qDebug(\"**  wropper->process param %s %s\", qPrintable(name), qPrintable(value.toString()));\n"\
+"	_icompsdisp->setIndication(\"IND\", name, value);\n"\
+"\n"\
+"}\n"\
+"\n"\
+"\n"\
+"extern \"C\" Q_DECL_EXPORT _<$ImitatorName>VirtualWrapper* createWrapper(QString panelname)\n"\
+"{\n"\
+"    return new _<$ImitatorName>VirtualWrapper(panelname);\n"\
+"}")
+
+
+
+//.h
+#define get_virtual_wrapper_h() ("#ifndef VIRTUALWRAPPER<$ImitatorName>_H\n"\
+"#define VIRTUALWRAPPER<$ImitatorName>_H\n"\
+"#include \"../../../include/ivirtualwrapper.h\"\n"\
+"\n"\
+"QT_BEGIN_NAMESPACE\n"\
+"class QTcpSocket;\n"\
+"class QFile;\n"\
+"QT_END_NAMESPACE\n"\
+"\n"\
+"class _<$ImitatorName>VirtualWrapper : public IVirtualWrapper\n"\
+"{\n"\
+"\n"\
+"\n"\
+"public:\n"\
+"    _<$ImitatorName>VirtualWrapper(QString panelname);\n"\
+"    void processParam(QString name, QVariant value);\n"\
+"};\n"\
+"#endif")
+
+
+//.pro
+#define get_virtual_wrapper_pro() ("QT += gui \\\n"\
+"xml \\\n"\
+"    network\n"\
+"CONFIG += console \\\n"\
+"designer\n"\
+"DESTDIR = ..\n"\
+"TARGET = <$ImitatorName>\n"\
+"TEMPLATE = lib\n"\
+"CONFIG += dll\n"\
+"HEADERS += virtualwrapper<$ImitatorName>.h \\\n"\
+"../../../include/ivirtualwrapper.h\n"\
+"SOURCES += virtualwrapper<$ImitatorName>.cpp\n"\
+"INCLUDEPATH += ../../../include/\n"\
+"INCLUDEPATH += ../../../icore/\n"\
+"INCLUDEPATH += ../../../src/icomponents\n"\
+"INCLUDEPATH += ../../../src/icompsdispatcher\n"\
+"DEFINES += __x86__\n"\
+"unix {\n"\
+"DEFINES += __OS_VERSION__=2 \\\n"\
+"    __linux__\n"\
+"OMNIBASE = /usr/local\n"\
+"INCLUDEPATH += /usr/include/omniORB4 \\\n"\
+"    /usr/include/COS\n"\
+"LIBS += -L../../lib\n"\
+"MOC_DIR = .moc\n"\
+"OBJECTS_DIR = .obj\n"\
+"}\n"\
+"win32 {\n"\
+"INCLUDEPATH += $$(OMNIORB_BASE)/include/\n"\
+"DEFINES += __WIN32__ \\\n"\
+"    WIN32 \\\n"\
+"    _WIN32_WINNT=0x0400 \\\n"\
+"    __NT__ \\\n"\
+"    __OSVERSION__=4\n"\
+"LIBS += -L$$(OMNIORB_BASE)/lib/x86_win32\ \\\n"\
+"    -lomniDynamic4_rt \\\n"\
+"    -lomniORB4_rt \\\n"\
+"    -lomnithread_rt\n"\
+"LIBS += ../../../lib/idisp2.lib\n"\
+"MOC_DIR = _moc\n"\
+"OBJECTS_DIR = _obj\n"\
+"}")
+
+ //
+ //CFG
+#define get_cfg() ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"\
+"<complex id=\"complex_<$ImitatorName>\"\n"\
+"			name=\"Test complex\"\n"\
+"			axz_enabled=\"False\"\n"\
+"			axz_node=\"2\"\n"\
+"			axz_level=\"2\"\n"\
+"			axz_upstream=\"complex_<$ImitatorName>\">\n"\
+"	<imitator id = \"<$ImitatorName>\" name = \"\">\n"\
+"		<uid>0</uid>\n"\
+"		<uid>1</uid>\n"\
+"	</imitator>\n"\
+"</complex>")
+//---------------------------
+//PROFILE
+ #define get_profile() ("complex_<$ImitatorName>:127.0.0.1:0")
+
+//---------------------------
+//COMPLEX
+//...
+
+//---------------------------
+//SCRIPT
+#define get_script() ("({\n"\
+"unitName: \"<$ImitatorName>\",\n"\
+"	processEvent: function(domain, name, param)\n"\
+"	{\n"\
+"		print(\"processEvent: \" + domain + \" \" + name + \" \" + param);\n"\
+"		return process(domain, name, param)\n"\
+"	},\n"\
+"	processICCEvent: function()\n"\
+"	{\n"\
+"		print (\"processIICEvent\" );\n"\
+"		print (\"src_complex \" + arguments[0]);\n"\
+"		print (\"src_imitator \" + arguments[1]);\n"\
+"		print(\"nparams \");\n"\
+"		for (var i = 2; i < arguments.length; i+=2) \n"\
+"		{\n"\
+"			print(\"name: \" + arguments[i]);\n"\
+"			print(\"value: \" + arguments[i+1]);\n"\
+"		}\n"\
+"		processIIC (arguments);\n"\
+"	}, \n"\
+"	processDisrepair: function(x)\n"\
+"	{\n"\
+"		print (\"disrepair\"+x);\n"\
+"		return processDisrep(x)\n"\
+"	},\n"\
+"	init: function()\n"\
+"	{\n"\
+"		print (\"init\");\n"\
+"	},\n"\
+"	fini: function()\n"\
+"	{\n"\
+"		print (\"fini\");\n"\
+"	},\n"\
+"\n"\
+"});\n"\
+"\n"\
+"/**\n"\
+"* выполняет дествия или вызывает функции в зависимости от\n"\
+"* имени и состояния управляющего элемента(кнопка, тумблер ...)\n"\
+"*\n"\
+"* ПОЛУЧАЕТ:\n"\
+"* domain домен управляющего элемента\n"\
+"* name имя управляющего элемента\n"\
+"* param состояние управляющего элемента\n"\
+"* \n"\
+"* ВОЗВРАШАЕТ:\n"\
+"* void\n"\
+"*/\n"\
+"function process(domain, name, param)\n"\
+"{\n"\
+"		print(\"**  [logic]->event processed\");	 \n"\
+"		switch (name) {\n"\
+"		// Код написанный далее иллюстрирует порядокn\n"\
+    "		// механизм обработки событий поступающих от элементов формыn\n"\
+    "		case \"SA1\":\n"\
+    "		  switch(param) {\n"\
+    "		  case \"1\":\n"\
+    "			Model.setParam(\"HL1\", 1);\n"\
+    "			break;\n"\
+    "		  default:\n"\
+    "		    Model.setParam(\"HL1\", 0);\n"\
+    "		    break;\n"\
+    "		  }\n"\
+    "		  break;\n"\
+    "		default:\n"\
+    "		  break;\n"\
+"		}\n"\
+"}\n"\
+"\n"\
+"/**\n"\
+"* выполняет дествия или вызывает функции в зависимости от \n"\
+"* сообщения и параметров, полученных от другого устройства или бода\n"\
+"*\n"\
+"* ПОЛУЧАЕТ:\n"\
+"* arguments[0] комплекс устройства, приславшего сообщение\n"\
+"* arguments[1] имя устройства, приславшего сообщение\n"\
+"* arguments[2] сообщение\n"\
+"* arguments[3] параметры присланные вместе с сообщением\n"\
+"* \n"\
+"* ВОЗВРАШАЕТ:\n"\
+"* void\n"\
+"*/\n"\
+"function processIIC (arguments) {\n"\
+"		switch (arguments[2]) {\n"\
+"\n"\
+"		}\n"\
+"\n"\
+"}\n"\
+"\n"\
+"/**\n"\
+"* выполняет дествия или вызывает функции в зависимости от \n"\
+"* сообщения, полученного от ПРЗ\n"\
+"*\n"\
+"* ПОЛУЧАЕТ:\n"\
+"* x сообщение от ПРЗ\n"\
+"* \n"\
+"* ВОЗВРАШАЕТ:\n"\
+"* void\n"\
+"*/\n"\
+"function processDisrep(x) {\n"\
+"\n"\
+"}\n"\
+"\n"\
+"/**\n"\
+"* ХЗ что делает :)\n"\
+"*\n"\
+"* ПОЛУЧАЕТ:\n"\
+"* name\n"\
+"* param \n"\
+"*\n"\
+"* ВОЗВРАШАЕТ:\n"\
+"* void\n"\
+"*/\n"\
+"function ext(name, param)\n"\
+"{\n"\
+"    print(\"ext: \" + name + \" \" + param);\n"\
+"}\n"\
+"\n"\
+"// -------------------------------------------- nothing yet  ----------------------------------------------------")
